@@ -38,6 +38,13 @@ method initialize Stage w h {
   return this
 }
 
+method setRes Stage w h {
+  oldW = (width morph)
+  oldH = (height morph)
+  setCostume morph (newBitmap w h color)
+  scaleToFit this oldW oldH
+}
+
 method setAspectRatio Stage w h {
   majorAxis = 800
   if (or (isNil w) (isNil h)) {
