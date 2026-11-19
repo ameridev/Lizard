@@ -46,8 +46,8 @@ to block type color opName {
   setField block 'labelParts' labelParts
   setField block 'color' color
   setField block 'corner' 3
-  setField block 'rounding' 8
-  setField block 'dent' 2
+  setField block 'rounding' 0
+  setField block 'dent' 4
   setField block 'hatWidth' 80
   setField block 'inset' 4
   setField block 'border' 1
