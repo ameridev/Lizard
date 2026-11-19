@@ -118,11 +118,11 @@ method fixLayout Block {
     }
   } else {
     if (type == 'hat') {
-      indentation = (* scale (+ border space))
+      indentation = (* scale (+ border inset dent (corner * 4)))
     } (type == 'reporter') {
       indentation = (* scale rounding)
     } (type == 'command') {
-      indentation = (* scale (+ border inset dent (corner * 2)))
+      indentation = (* scale (+ border inset dent (corner * 4)))
     }
   }
 
@@ -283,9 +283,9 @@ method redraw Block stealthAlpha {
   isHighlighted = (removeHighlight morph)
   bm = (newBitmap (width morph) (height morph))
   if (type == 'command') {
-	drawBlock (newShapeMaker bm) 0 0 (width bm) (height bm) color (scale * corner) (scale * dent) (scale * inset) ((max 1 (scale / 2)) * border)
+	drawBlock (newShapeMaker bm) 0 0 (width bm) (height bm) color (scale * 4.5) (scale * 8) (scale * inset) 0
   } (type == 'reporter') {
-	drawReporter (newShapeMaker bm) 0 0 (width bm) (height bm) color (scale * rounding) ((max 1 (scale / 2)) * border)
+	drawReporter (newShapeMaker bm) 0 0 (width bm) (height bm) color (scale * 16) 0
     if (global 'stealthBlocks') {
       // draw parentheses
       openP = (stealthText this '(')
@@ -295,7 +295,7 @@ method redraw Block stealthAlpha {
       drawBitmap bm closeP (- (width bm) (width closeP)) topP
     }
   } (type == 'hat') {
-	drawHatBlock (newShapeMaker bm) 0 0 (width bm) (height bm) (scale * hatWidth) color (scale * corner) (scale * dent) (scale * inset) ((max 1 (scale / 2)) * border)
+	drawHatBlock (newShapeMaker bm) 0 0 (width bm) (height bm) (scale * hatWidth) color (scale * 4.5) (scale * 8) (scale * inset) 0
   }
   for group labelParts {
     for each group {
