@@ -115,7 +115,7 @@ method addTopBarParts ProjectEditor {
   addPart morph (morph stealthSlider)
 
   leftItems = (list)
-  add leftItems (textButton this 'New' 'newProject')
+  add leftItems (textButton this 'Lizard100' 'newProject')
   add leftItems (textButton this 'Open' 'openProjectMenu')
   add leftItems (textButton this 'Save' 'saveProject')
   if (not (isOneOf (platform) 'Browser' 'iOS')) {
