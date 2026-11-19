@@ -277,12 +277,12 @@ method drawCSlot ShapeMaker x y width height blockColor radius dent inset border
 
     beginPath pen ((right rect) - halfBorder) ((top rect) - halfBorder)
     cSlotTopPath this rect radius dent inset border
-    stroke pen (darker blockColor) border
+    stroke pen (darker blockColor) 0
 
     beginPath pen (((left rect) + inset) - (border * 2.5)) ((bottom rect) - (+ halfBorder (radius * 2)))
     setHeading pen 90
     cSlotBottomPath this rect radius dent inset border
-    stroke pen (lighter blockColor) border
+    stroke pen (lighter blockColor) 0
   }
   unmultiplyAlpha (bitmap pen)
 }
@@ -301,7 +301,7 @@ method drawButton ShapeMaker x y width height buttonColor corner border isInset 
     topColor = (lighter buttonColor)
     bottomColor = (darker buttonColor)
   }
-  fillRoundedRect this (rect x y width height) corner buttonColor border topColor bottomColor
+  fillRoundedRect this (rect x y width height) corner buttonColor (border * 0) topColor bottomColor
 }
 
 // paths
@@ -518,13 +518,13 @@ method cSlotTopPath ShapeMaker rect radius dent inset border {
   turn pen 45
 
   // upper inner slot
-  forward pen ((width rect) - (+ (radius * 4) inset dent border))
+  forward pen ((width rect) - (+ (radius * 4) inset (dent * 4) border))
 
   // upper notch
   turn pen -45
   forward pen corner
   turn pen 45
-  forward pen dent
+  forward pen (dent * 4)
   turn pen 45
   forward pen corner
   turn pen -45
