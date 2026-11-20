@@ -663,7 +663,7 @@ method open Page tryRetina title {
   setGlobal 'stealthBlocks' false
   setGlobal 'stealthLevel' -50
   setClipping morph true
-  if (isNil title) { title = 'Lizard' }
+  if (isNil title) { title = 'Program' }
   openWindow (width morph) (height morph) tryRetina title
   winSize = (windowSize)
   setExtent morph (at winSize 3) (at winSize 4) // actual extent
