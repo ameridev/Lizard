@@ -43,7 +43,7 @@ to openProjectEditor tryRetina devMode presentFlag {
   }
   setDevMode page devMode
   setGlobal 'page' page
-  open page tryRetina
+  open page tryRetina 'Lizard'
   editor = (initialize (new 'ProjectEditor') (emptyProject))
   addPart page editor
   if (notNil (global 'initialProject')) {
